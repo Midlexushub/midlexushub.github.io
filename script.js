@@ -306,7 +306,7 @@ $("checkerForm").addEventListener("submit",async e=>{
 
   try{
     const response=await fetch(
-      "https://xnzcheckid.vercel.app/api/checker",
+      "https://xnzhub-github-io.xnzresellerbackup.workers.dev/api/checker",
       {
         method:"POST",
         headers:{
