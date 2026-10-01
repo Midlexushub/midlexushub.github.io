@@ -2,10 +2,11 @@ const WA="60143783301";
 
 const services=[
 ["MIDMAN","Urusan transaksi dengan lebih tersusun dan selamat.","Manage transactions in an organised and secure way."],
-["TOPUP GAMES","Perkhidmatan topup untuk pelbagai game.","Top-up service for various games."],
-["SELL & BUY ACCOUNT GAMES","Jual beli akaun game dengan urusan yang jelas.","Buy and sell game accounts with clear dealings."],
-["PAID PROMOTE ACCOUNT GAMES","Promosi akaun game untuk bantu tingkatkan pendedahan.","Promote game accounts to increase exposure."],
-["SELL SET ANDRO/IP","Urusan jual dan beli set Android serta IP.","Buy and sell Android sets and IP services."],
+["TOPUP ALL GAME","Perkhidmatan topup untuk pelbagai game.","Top-up service for various games."],
+["SELL / BUY ACC GAME","Perkhidmatan jual dan beli akaun game.","Game account buying and selling service."],
+["SELL SET IP / ANDRO","Urusan jual dan beli set IP serta Android.","Buy and sell IP and Android sets."],
+["SELL APPS PREMIUM / PRO","Perkhidmatan aplikasi Premium dan Pro.","Premium and Pro app services."],
+["PAID PROMOTE","Promosi berbayar untuk bantu tingkatkan pendedahan.","Paid promotion to increase exposure."],
 ["BOOST TIKTOK","Servis boost TikTok untuk bantu tingkatkan akaun.","TikTok boosting service to help grow your account."]
 ];
 
@@ -25,11 +26,11 @@ const reasons=[
 ["Pelbagai Servis","Various Services"],
 ["Maklumat Jelas","Clear Information"],
 ["Sokongan Pelanggan","Customer Support"],
-["XNZHUB","XNZHUB"]
+["LEXUSHUB","LEXUSHUB"]
 ];
 
 const midmans=[
-["MIDMAN XNZ","60143783301"],
+["MIDMAN LEXUS","60143783301"],
 ["MIDMAN BUNGSTORE","60179988219"],
 ["MIDMAN AASHOP","60179981705"],
 ["MIDMAN AMIRA","601173807270"],
@@ -50,14 +51,14 @@ const midmans=[
 ["MIDMAN ZIXX","60108215834"]
 ];
 
-let lang=localStorage.getItem("xnz_lang")||"my";
+let lang=localStorage.getItem("lexus_lang")||"my";
 
 const $=id=>document.getElementById(id);
 
 function renderServices(){
-  $("services").innerHTML=services.map((s,i)=>`
+  $("services").innerHTML=services.map(s=>`
     <div class="service-card">
-      <h3>${s[lang==="my"?0:0]}</h3>
+      <h3>${s[0]}</h3>
       <p>${s[lang==="my"?1:2]}</p>
       <button class="service-contact" data-service="${s[0]}">
         ${lang==="my"?"HUBUNGI":"CONTACT"}
@@ -78,7 +79,7 @@ function renderWhy(){
   $("why").innerHTML=reasons.map(s=>`
     <div class="why-card">
       <h3>${lang==="my"?s[0]:s[1]}</h3>
-      <p>${lang==="my"?"XNZHUB":"XNZHUB"}</p>
+      <p>LEXUSHUB</p>
     </div>
   `).join("");
 }
@@ -105,7 +106,7 @@ function translateStatic(){
     "DIGITAL SERVICES";
 
   document.querySelector("#home .hero i").textContent=
-    "XNZHUB • OFFICIAL";
+    "LEXUSHUB • OFFICIAL";
 
   document.querySelector("#home .hero p").textContent=
     en
@@ -114,26 +115,26 @@ function translateStatic(){
 
   const headings=document.querySelectorAll("#home .section h2");
 
-  headings[0].textContent="OUR SERVICE XNZ";
+  headings[0].textContent="OUR SERVICE LEXUS";
   headings[1].textContent="HOW TO ORDER";
-  headings[2].textContent="WHY XNZ";
+  headings[2].textContent="WHY LEXUS";
 
   document.querySelector("#midman label").textContent=
-    en?"XNZHUB • REGISTERED":"XNZHUB • REGISTERED";
+    "LEXUSHUB • REGISTERED";
 
   document.querySelector("#midman h2").textContent=
     en?"REGISTERED MIDMAN":"MIDMAN YANG BERDAFTAR";
 
   document.querySelector("#midman p").textContent=
     en
-    ?"List of Midman registered with XNZHUB."
-    :"Senarai Midman yang berdaftar dengan XNZHUB.";
+    ?"List of Midman registered with LEXUSHUB."
+    :"Senarai Midman yang berdaftar dengan LEXUSHUB.";
 
   document.querySelector("#contact label").textContent=
-    en?"XNZHUB • CONTACT":"XNZHUB • CONTACT";
+    "LEXUSHUB • CONTACT";
 
   document.querySelector("#contact h2").textContent=
-    en?"GET IN TOUCH":"GET IN TOUCH";
+    "GET IN TOUCH";
 
   document.querySelector("#contact > p").textContent=
     en?"CONTACT CENTRE":"PUSAT PERHUBUNGAN";
@@ -141,6 +142,7 @@ function translateStatic(){
   $("name").placeholder=en?"FULL NAME":"NAMA PENUH";
   $("phone").placeholder=en?"WHATSAPP NO":"NO WS";
   $("message").placeholder=en?"QUESTION DETAILS":"BUTIRAN PERTANYAAN";
+
   $("contactForm button").textContent=
     en?"SUBMIT REQUEST":"HANTAR PERMOHONAN";
 
@@ -148,22 +150,24 @@ function translateStatic(){
     en?"HELP LINE INFORMATION":"INFORMASI TALIAN BANTUAN";
 
   document.querySelector("#checker label").textContent=
-    en?"XNZHUB • TOOL":"XNZHUB • TOOL";
+    "LEXUSHUB • TOOL";
 
   document.querySelector("#checker h2").textContent=
     "MLBB CHECKER ID";
 
   document.querySelector("#checker > p").textContent=
-    en?"Check your Mobile Legends ID."
+    en
+    ?"Check your Mobile Legends ID."
     :"Semak ID Mobile Legends anda.";
 
   $("mlId").placeholder=en?"MLBB ID":"ID MLBB";
   $("zoneId").placeholder=en?"ZONE ID":"ZONE ID";
+
   $("checkerForm button").textContent=
-    en?"CHECK ID":"CHECK ID";
+    "CHECK ID";
 
   document.querySelector("footer").textContent=
-    "XNZHUB • DIGITAL SERVICES";
+    "LEXUSHUB • DIGITAL SERVICES";
 
   document.querySelector("#menu strong").textContent=
     en?"CONFIGURATION":"KONFIGURASI";
@@ -178,13 +182,13 @@ function translateStatic(){
     en?"🏠 HOME":"🏠 LAMAN UTAMA";
 
   document.querySelector('[data-page="midman"]').textContent=
-    en?"🛡️ MIDMAN":"🛡️ MIDMAN";
+    "🛡️ MIDMAN";
 
   document.querySelector('[data-page="contact"]').textContent=
     en?"📞 CONTACT US":"📞 HUBUNGI KAMI";
 
   document.querySelector('[data-page="checker"]').textContent=
-    en?"🎮 MLBB CHECKER ID":"🎮 MLBB CHECKER ID";
+    "🎮 MLBB CHECKER ID";
 }
 
 function render(){
@@ -195,13 +199,19 @@ function render(){
   translateStatic();
 
   document.querySelectorAll("[data-lang]").forEach(b=>{
-    b.classList.toggle("active",b.dataset.lang===lang);
+    b.classList.toggle(
+      "active",
+      b.dataset.lang===lang
+    );
   });
 }
 
 function openPage(page){
   document.querySelectorAll(".page").forEach(p=>{
-    p.classList.toggle("active",p.id===page);
+    p.classList.toggle(
+      "active",
+      p.id===page
+    );
   });
 
   $("menu").classList.add("hidden");
@@ -228,7 +238,7 @@ document.addEventListener("click",e=>{
   if(!btn)return;
 
   const text=encodeURIComponent(
-    "Assalamualaikum XNZHUB, saya ingin bertanya tentang servis: "+
+    "Assalamualaikum LEXUSHUB, saya ingin bertanya tentang servis: "+
     btn.dataset.service
   );
 
@@ -241,7 +251,12 @@ document.addEventListener("click",e=>{
 document.querySelectorAll("[data-lang]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     lang=btn.dataset.lang;
-    localStorage.setItem("xnz_lang",lang);
+
+    localStorage.setItem(
+      "lexus_lang",
+      lang
+    );
+
     render();
   });
 });
@@ -250,10 +265,13 @@ document.querySelectorAll("[data-theme]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const white=btn.dataset.theme==="white";
 
-    document.body.classList.toggle("white",white);
+    document.body.classList.toggle(
+      "white",
+      white
+    );
 
     localStorage.setItem(
-      "xnz_theme",
+      "lexus_theme",
       white?"white":"dark"
     );
 
@@ -276,7 +294,7 @@ $("contactForm").addEventListener("submit",e=>{
   if(!name||!phone||!message)return;
 
   const text=encodeURIComponent(
-    "XNZHUB - BORANG MAKLUM BALAS\n\n"+
+    "LEXUSHUB - BORANG MAKLUM BALAS\n\n"+
     "Nama: "+name+"\n"+
     "No WS: "+phone+"\n"+
     "Pertanyaan: "+message
@@ -366,7 +384,8 @@ $("checkerForm").addEventListener("submit",async e=>{
   }
 });
 
-const savedTheme=localStorage.getItem("xnz_theme")||"dark";
+const savedTheme=
+  localStorage.getItem("lexus_theme")||"dark";
 
 document.body.classList.toggle(
   "white",
